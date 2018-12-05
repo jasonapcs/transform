@@ -20,6 +20,16 @@ struct sqPattern {
       }
   }
   
+  inline bool operator==(const sqPattern& left, const sqPattern& right){
+    if (left.size == right.size){
+      for (int i = 0; i < left.size; i++)
+        for (int j = 0; j < left.size; j++)
+          if (left[i][j] != right[i][j]) return false;
+      return true;
+    }
+    else return false;
+  }
+  
   int size;
   std::vector<std::vector<char>> pattern;
   
